@@ -10,6 +10,8 @@
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
         href="{{asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  
     <title>Admin Login</title>
 </head>
 
@@ -59,8 +61,11 @@
                 </form>
             </div>
     </section>
-    <!-- Essential javascripts for application to work-->
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- Essential javascripts for application to work-->
+ 
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
@@ -74,6 +79,14 @@
         });
 
     </script>
+
+    
+@if(Session::has('record_added'));
+<script>
+toastr.success("{!!Session::get('record_added')!!}")
+
+</script>
+@endif
 </body>
 
 </html>

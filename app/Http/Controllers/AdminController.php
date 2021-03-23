@@ -33,8 +33,8 @@ class AdminController extends Controller
             return \redirect('admin_dashboard');
                            }   
         }
-        $request->session()->flash('msg','wrong email password');
-        return redirect('adminlogin');
+        // $request->session()->flash('msg','wrong email password');
+        return redirect('adminlogin')->with("record_added","Wrong email password");
        }
 
        /**
