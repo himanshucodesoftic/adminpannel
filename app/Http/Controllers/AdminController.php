@@ -30,7 +30,7 @@ class AdminController extends Controller
             $request->session()->put('ssiapp_adm_email', $res['adm_email']);
             $request->session()->put('ssiapp_adm_name', $res['adm_name']);
             $request->session()->put('ssiapp_adm_token', $token);
-            return \redirect('admin_dashboard');
+            return \redirect('admin_dashboard')->with("record_added","Succesfully logged in");
                            }   
         }
         // $request->session()->flash('msg','wrong email password');

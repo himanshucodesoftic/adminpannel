@@ -1,4 +1,6 @@
 @extends('layout.admin_layout')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  
 @section('content')
 <!--- nav bar end-->
     <main class="app-content">
@@ -17,7 +19,7 @@
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
            <a href="{{url('oneday')}}">   <h4>Last One Day</h4>
-         
+           {{count($members)}}
             </a>
             </div>
           </div>
@@ -27,7 +29,7 @@
             <div class="info">
             <a href="{{url('sevenday')}}">
               <h4>Last seven Day</h4>
-              
+            
               <!-- <p><b>25</b></p> --></a>
             </div>
           </div>
@@ -101,16 +103,19 @@
       </div>
     </main>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-   
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script>
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
-
+    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
+  
 
 </script>
+
+   
+@if(Session::has('record_added'));
+<script>
+toastr.success("{!!Session::get('record_added')!!}")
+
+</script>
+@endif
     <!-- Essential javascripts for application to work-->
  @endsection

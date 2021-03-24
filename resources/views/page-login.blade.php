@@ -83,7 +83,7 @@
     
 @if(Session::has('record_added'));
 <script>
-toastr.success("{!!Session::get('record_added')!!}")
+toastr.error("{!!Session::get('record_added')!!}")
 
 </script>
 @endif

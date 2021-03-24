@@ -30,7 +30,7 @@ public function userPostRegistration(Request $request) {
     $input          =           $request->all();
 
     // if validation success then create an input array
-    $inputArray      =           array(
+    $inputArray      =           array(   
         'first_name'        =>      $request->first_name,
         'last_name'         =>      $request->last_name,
         // 'full_name'         =>      $request->first_name . " ". $request->last_name,
@@ -44,7 +44,7 @@ public function userPostRegistration(Request $request) {
         'state'=>$request->state,
         'pincode'=>$request->pincode,
         'countryCode'=>$request->countryCode
-        
+       
 
     );
 

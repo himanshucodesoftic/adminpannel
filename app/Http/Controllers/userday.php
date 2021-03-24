@@ -56,14 +56,13 @@ return view('thirtyday',['users'=>$users]);
         return \redirect('/adminlogin')->withErrors(['error_reason'=>'Session Don\'t exist']);
     } 
     $users = DB::table('users')->count();
-    // $users = Carbon::now();
     $date = \Carbon\Carbon::today()->subDays(365);
     $users = User::where('created_at','>=',$date)->get();
     // dd($users);
 return view('oneyear',['users'=>$users]);
    }
-   
  
+  
 
    
 }

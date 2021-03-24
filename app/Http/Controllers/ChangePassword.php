@@ -51,7 +51,7 @@ class ChangePassword extends Controller
         
             DB::commit();
 
-            return redirect('admin_dashboard');
+            return redirect('changepassword')->with("record_added","Password Changed Succesfully");;
         }catch (\Exception $ex) {
             DB::rollback();
             $res['res'] = 'FAIL';
