@@ -1,5 +1,5 @@
 @extends('master')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 @section('content')
 
 <nav class="navbar navbar-expand-lg navbar-danger bg-danger">
@@ -19,5 +19,17 @@
       </ul>
     </div>
   </nav>
+
+  <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    
+@if(Session::has('record_added'));
+<script>
+toastr.success("{!!Session::get('record_added')!!}")
+
+</script>
+@endif
 
 @endsection

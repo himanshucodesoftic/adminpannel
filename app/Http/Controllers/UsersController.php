@@ -53,7 +53,7 @@ public function userPostRegistration(Request $request) {
 
     // if registration success then return with success message
     if(!is_null($user)) {
-        return back()->with('success', 'You have registered successfully.');
+        return redirect('register')->with("record_added","Succesfully Register");
     }
 
     // else return with error message
@@ -79,11 +79,12 @@ public function userPostRegistration(Request $request) {
 
         // check user using auth function
         if (Auth::attempt($userCredentials)) {
-            return redirect()->intended('dashboard');
+            return redirect()->intended('dashboard')->with("record_added","Succesfully login");
+            
         }
 
         else {
-            return back()->with('error', 'Whoops! invalid username or password.');
+            return redirect('userlogin')->with("record_added","wrong email password");
         }
     }
 

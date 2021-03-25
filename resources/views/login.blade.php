@@ -1,7 +1,7 @@
 <!-- login.blade.php -->
 
 @extends('master')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 @section('content')
 <div class="container mt-3">
     <div class="row">
@@ -9,7 +9,7 @@
         <form method="post" action="{{ url('login') }}">
                 <div class="card shadow">
                     <div class="car-header bg-danger pt-2">
-                        <div class="card-title font-weight-bold text-white text-center"> User Login </div>
+                        <div class="card-title font-weight-bold text-white text-center"> Login </div>
                     </div>
 
                     <div class="card-body">
@@ -47,4 +47,18 @@
         </div>
     </div>
 </div>
+
+
+
+<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    
+@if(Session::has('record_added'));
+<script>
+toastr.info("{!!Session::get('record_added')!!}")
+
+</script>
+@endif
 @endsection

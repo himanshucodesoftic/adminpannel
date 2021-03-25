@@ -29,7 +29,7 @@ return view('admin_dashboard',['members'=>$data]);
     
      }
 
-     public function showpage($id) {
+     public function showpage(Request $request,$id) {
         if (!$request->session()->has('ssiapp_adm_id')) {
             return \redirect('/adminlogin')->withErrors(['error_reason'=>'Session Don\'t exist']);
         } 

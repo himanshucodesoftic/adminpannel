@@ -1,7 +1,8 @@
 <!-- registration.blade.php -->
 
 @extends('master')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  
 @section('content')
 <div class="container mt-3">
     <div class="row">
@@ -435,4 +436,18 @@
         </div>
     </div>
 </div>
+
+<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    
+@if(Session::has('record_added'));
+<script>
+toastr.info("{!!Session::get('record_added')!!}")
+
+</script>
+@endif
+
+
 @endsection
